@@ -1,0 +1,55 @@
+currently we will focus on two folders src and public 
+
+(tut:2)-----/////////////////// src ////////////////////////// 
+
+> in this we will use props and stat 
+  1- props
+    . Suppose if we have a form and we want to send it with details so which details we enter in it that is props
+
+  2- state
+    . Components contents is state and you can change that
+
+
+
+(tut:4)-----/////////////////// JSX ////////////////////////////
+
+> hum jo bhi app component me bhejna chahte he to use hum app.js ke ander aik hi bracket me return kerate hein is ko JSX kehte hein
+  but remember hum sirf aik block div ya kisi aur chiz ko use ker ke bhej sakte hein
+
+> Ager hum aik se zyada cheze bhejna chahte hein apne app component me to hume JSX fragment use kerna pere ga jo aise likhte hein <></>
+
+> In short JSX is html which we write to display on dom but with some follow up like in we have to replace class with className for with
+  htmlFor or more and where we want to apply js we will use {} and if we use funtion to write html which will be in most of the cases so we will write html in return() most of the cases means we can also use classes but it is complicated to manage so in modern era it is almosty obsolet
+
+----------Babel compile
+
+> Jo bhi JSX hum likhte hein wo babel ke through compile hoti he it has which you don't need to remember but you can see from google
+
+----------IP Address
+
+> if you want see your app at your phone so you have to use this ip address On Your Network: http://192.168.1.6:3000 in your phone but
+  it is neccessary that you mobile and laptop shoulb be connect with same wifi
+
+
+
+(tut:6)-----/////////////////// Props(Props is short of properties) ////////////////////////////
+
+> Jaha hum apne components ko use kere ge us ke ander se hi props pass kere ge like <Navbar title="TextUtils" />
+  we can pass multiples or where we made components there we have to write props in () like export default function Navbar(props) {}
+  or we can use props like this in code {props.title}
+
+----------propTypes
+
+> When we pass props so we can define it's types like it is string or number or boolean or array or object so we import propTypes where we declare types
+  and declaring types like this 
+  Navbar.propTypes = {
+  title: PropTypes.string,
+  };
+
+(tut:7)-----/////////////////// State ////////////////////////////
+
+>first discuss about structure like we have import useState first than for use in code with this structure const [text,setText] = useState("hello");
+ here useState has default text of text and it can be change like this setText("hello ahmed"); this is right way we can not do like this text = "hello ahmed";
+ isko hum useState hook kehte hein jo state variables banane me madad kerta he react me sirf useState hook nhi hota bulke bohot se hook hote hein
+
+> main use of set is this that without page load we can do multiple things in website
