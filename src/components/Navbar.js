@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
@@ -10,7 +8,12 @@ export default function Navbar(props) {
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <div className="container-fluid">
-        <Link className={`navbar-brand text-${props.mode === "light" ? "dark" : "light"}`} to="/home">
+        <Link
+          className={`navbar-brand text-${
+            props.mode === "light" ? "dark" : "light"
+          }`}
+          to="/"
+        >
           {props.title}
         </Link>
         <button
@@ -22,22 +25,34 @@ export default function Navbar(props) {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>9
+          <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className={`nav-link active text-${props.mode === "light" ? "dark" : "light"}`} aria-current="page" to="/home" >
+              <Link
+                className={`nav-link active text-${
+                  props.mode === "light" ? "dark" : "light"
+                }`}
+                aria-current="page"
+                to="/home"
+              >
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link text-${props.mode === "light" ? "dark" : "light"}`} to="/about" >
+              <Link
+                className={`nav-link active text-${
+                  props.mode === "light" ? "dark" : "light"
+                }`}
+                aria-current="page"
+                to="/about"
+              >
                 About
               </Link>
             </li>
           </ul>
-          <div className="form-check form-switch">
+          <div className="form-check form-switch mx-3">
             <input
               className="form-check-input"
               type="checkbox"
@@ -46,11 +61,20 @@ export default function Navbar(props) {
               onClick={props.toggleMode}
             />
             <label
-              className={`form-check-label text-${props.mode === "light" ? "dark" : "light"
-                }`}
+              className={`form-check-label text-${
+                props.mode === "light" ? "dark" : "light"
+              }`}
               htmlFor="toggleSwitch "
             >
-              {`Enable ${props.mode === "light" ? "dark" : "light"} Mode`}
+              {`Enable ${
+                props.mode === "light"
+                  ? "dark"
+                  : props.mode === "success"
+                  ? "dark"
+                  : props.mode === "danger"
+                  ? "dark"
+                  : "light"
+              } Mode`}
             </label>
           </div>
           <div className="form-check form-switch mx-3">
@@ -62,11 +86,20 @@ export default function Navbar(props) {
               onClick={props.toggleGreen}
             />
             <label
-              className={`form-check-label text-${props.mode === "light" ? "dark" : "light"
-                }`}
+              className={`form-check-label text-${
+                props.mode === "light" ? "dark" : "light"
+              }`}
               htmlFor="greenSwitch"
             >
-              {`Enable ${props.mode === "light" ? "green" : "light"} Mode`}
+              {`Enable ${
+                props.mode === "light"
+                  ? "green"
+                  : props.mode === "dark"
+                  ? "green"
+                  : props.mode === "danger"
+                  ? "green"
+                  : "light"
+              } Mode`}
             </label>
           </div>
           <div className="form-check form-switch mx-3">
@@ -78,11 +111,20 @@ export default function Navbar(props) {
               onClick={props.toggleDanger}
             />
             <label
-              className={`form-check-label text-${props.mode === "light" ? "dark" : "light"
-                }`}
+              className={`form-check-label text-${
+                props.mode === "light" ? "dark" : "light"
+              }`}
               htmlFor="redSwitch"
             >
-              {`Enable ${props.mode === "light" ? "Red" : "light"} Mode`}
+              {`Enable ${
+                props.mode === "light"
+                  ? "Red"
+                  : props.mode === "success"
+                  ? "Red"
+                  : props.mode === "dark"
+                  ? "Red"
+                  : "light"
+              } Mode`}
             </label>
           </div>
         </div>

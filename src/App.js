@@ -3,15 +3,8 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import About from "./components/About";
-import ChangeTitle from "./components/ChangeTitle";
 import Alert from "./components/Alert";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
-
-export default App;
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -97,21 +90,36 @@ function App() {
           <Alert alert={alert} />
         </div>
 
-        <ChangeTitle />
-
         <div className="container my-3">
           <Routes>
+            <Route path="/about" element={<About mode={mode} />} />
 
-            <Route exact path="/about" element={<About />} />
+            <Route
+              path="/"
+              element={
+                <TextForm
+                  showAlert={showAlert}
+                  heading="Enhance your text as your's choice"
+                  mode={mode}
+                />
+              }
+            />
 
-            <Route exact path="/home" element={<TextForm
-              showAlert={showAlert}
-              heading="Enter the text to analyze below"
-              mode={mode}
-            />} />
+            <Route
+              path="/home"
+              element={
+                <TextForm
+                  showAlert={showAlert}
+                  heading="Enhance your text as your's choice"
+                  mode={mode}
+                />
+              }
+            />
           </Routes>
         </div>
       </Router>
     </>
   );
 }
+
+export default App;
