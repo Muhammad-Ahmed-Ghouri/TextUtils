@@ -53,3 +53,12 @@ currently we will focus on two folders src and public
  isko hum useState hook kehte hein jo state variables banane me madad kerta he react me sirf useState hook nhi hota bulke bohot se hook hote hein
 
 > main use of set is this that without page load we can do multiple things in website
+
+
+(tut:17)-----//////////////////// How to deploy code free at github ////////////////////////
+
+>Step-1 : "homepage": "https://myusername.github.io/my-app", (add this at package.json top bracket)
+>Step-2 : npm install --save gh-pages (download this)
+>Step-3 : "predeploy": "npm run build", "deploy": "gh-pages -d build", (add this in your package.json script)
+>Step-4 : npm run deploy (now run this command in terminal)
+>Step-5 : go to github > setting > pages > click on link
