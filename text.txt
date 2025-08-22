@@ -62,3 +62,12 @@ currently we will focus on two folders src and public
 >Step-3 : "predeploy": "npm run build", "deploy": "gh-pages -d build", (add this in your package.json script)
 >Step-4 : npm run deploy (now run this command in terminal)
 >Step-5 : go to github > setting > pages > click on link
+
+-----//////////////////// How to deploy code free at Vercel with routing ////////////////////////
+
+>Step-1 : "homepage": ".", (add this at package.json top bracket)
+>Step-2 : make vercel.json file and put this code in that file ({
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}) remove round brackets

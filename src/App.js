@@ -20,15 +20,28 @@ function App() {
     }, 2000);
   };
 
-  const toggleMode = () => {
-    if (mode === "dark" || mode === "success") {
+  const removeBodyClasses = () => {
+    document.body.classList.remove("bg-light");
+    document.body.classList.remove("bg-dark");
+    document.body.classList.remove("bg-warning");
+    document.body.classList.remove("bg-danger");
+    document.body.classList.remove("bg-success");
+  };
+
+  const toggleMode = (cls) => {
+    removeBodyClasses();
+    console.log(cls);
+
+    document.body.classList.add("bg-" + cls);
+
+    if (mode === "dark") {
       setMode("light");
       document.body.style.backgroundColor = "white";
       showAlert("Light mode has been enabled.", "success");
       setTimeout(() => {
         setAlert(null);
       }, 2000);
-    } else if (mode === "light" || mode === "success") {
+    } else {
       setMode("dark");
       document.body.style.backgroundColor = "rgb(11 43 64)";
       showAlert("Dark mode has been enabled.", "success");
@@ -38,42 +51,42 @@ function App() {
     }
   };
 
-  const toggleGreen = () => {
-    if (mode === "dark" || mode === "light") {
-      setMode("success");
-      document.body.style.backgroundColor = "#004726ff";
-      showAlert("Green mode has been enabled.", "success");
-      setTimeout(() => {
-        setAlert(null);
-      }, 2000);
-    } else if (mode === "success" || mode === "dark") {
-      setMode("light");
-      document.body.style.backgroundColor = "white";
-      showAlert("Light mode has been enabled.", "success");
-      setTimeout(() => {
-        setAlert(null);
-      }, 2000);
-    }
-  };
+  // const toggleGreen = () => {
+  //   if (mode === "dark" || mode === "light") {
+  //     setMode("success");
+  //     document.body.style.backgroundColor = "#004726ff";
+  //     showAlert("Green mode has been enabled.", "success");
+  //     setTimeout(() => {
+  //       setAlert(null);
+  //     }, 2000);
+  //   } else if (mode === "success" || mode === "dark") {
+  //     setMode("light");
+  //     document.body.style.backgroundColor = "white";
+  //     showAlert("Light mode has been enabled.", "success");
+  //     setTimeout(() => {
+  //       setAlert(null);
+  //     }, 2000);
+  //   }
+  // };
 
-  const toggleDanger = () => {
-    if (mode === "dark" || mode === "light" || mode === "success") {
-      setMode("danger");
-      document.body.style.backgroundColor = "#2c0b0e";
-      showAlert("Red mode has been enabled.", "success");
-      setTimeout(() => {
-        setAlert(null);
-      }, 2000);
-    } else if (mode === "success" || mode === "dark" || mode === "danger") {
-      setMode("light");
-      document.body.style.backgroundColor = "white";
-      showAlert("Light mode has been enabled.", "success");
-      document.title = "TextUtils";
-      setTimeout(() => {
-        setAlert(null);
-      }, 2000);
-    }
-  };
+  // const toggleDanger = () => {
+  //   if (mode === "dark" || mode === "light" || mode === "success") {
+  //     setMode("danger");
+  //     document.body.style.backgroundColor = "#2c0b0e";
+  //     showAlert("Red mode has been enabled.", "success");
+  //     setTimeout(() => {
+  //       setAlert(null);
+  //     }, 2000);
+  //   } else if (mode === "success" || mode === "dark" || mode === "danger") {
+  //     setMode("light");
+  //     document.body.style.backgroundColor = "white";
+  //     showAlert("Light mode has been enabled.", "success");
+  //     document.title = "TextUtils";
+  //     setTimeout(() => {
+  //       setAlert(null);
+  //     }, 2000);
+  //   }
+  // };
 
   return (
     <>
@@ -81,9 +94,9 @@ function App() {
         <Navbar
           title="TextUtils"
           mode={mode}
-          toggleGreen={toggleGreen}
+          // toggleGreen={toggleGreen}
           toggleMode={toggleMode}
-          toggleDanger={toggleDanger}
+          // toggleDanger={toggleDanger}
         />
 
         <div className="container my-3">
